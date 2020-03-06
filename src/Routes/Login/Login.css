@@ -1,0 +1,28 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.Login-Image {
+  width: 250px;
+  height: 100%;
+}
+
+.alt-color {
+  color: #4e9ec7;
+}
+
+@media only screen and (min-width: 1200px) {
+  .Login-Image {
+    width: 450px;
+  }
+
+  .Login h1 {
+    font-size: calc(2vmin + 25px);
+  }
+}

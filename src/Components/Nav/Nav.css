@@ -1,0 +1,35 @@
+.Nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+}
+
+.Nav h5 {
+  text-transform: capitalize;
+  display: inline;
+  margin-right: 10px;
+  font-size: calc(2vmin + 5px);
+}
+
+.Nav a {
+  display: inline;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #000;
+  font-size: calc(2vmin + 5px);
+}
+
+@media only screen and (min-width: 769px) {
+  .Nav {
+    margin-top: 20px;
+  }
+
+  .Nav h5 {
+    margin-right: 25px;
+  }
+
+  .Nav a {
+    margin-right: 30px;
+  }
+}

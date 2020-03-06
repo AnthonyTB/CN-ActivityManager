@@ -1,0 +1,42 @@
+.ActivityCreation {
+  padding: 20px;
+  background: url('../../Assets/section_bg.png') repeat center center #4e9ec7;
+  border-radius: 20px;
+  width: 60%;
+  margin: auto auto;
+  box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.ActivityCreation .group {
+  width: 85%;
+  margin: auto auto;
+}
+
+.activity-submit {
+  float: right;
+  font-size: calc(2vmin + 1px) !important;
+}
+
+.activity-cancel {
+  float: left;
+  font-size: calc(2vmin + 1px) !important;
+}
+
+/* Tablet Media Queries */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+@media only screen and (min-width: 1200px) {
+  .ActivityCreation {
+    margin-bottom: 20px;
+  }
+
+  .ActivityCreation .group {
+    width: 80%;
+    margin: auto auto;
+  }
+}

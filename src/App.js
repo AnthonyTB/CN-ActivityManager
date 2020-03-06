@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import PublicRoute from './Routes/RouteHandlers/PublicRoute';
+import PrivateRoute from './Routes/RouteHandlers/PrivateRoute';
+import Login from './Routes/Login/Login';
+import Home from './Routes/Home/Home';
+import Boundary from './Routes/Boundary/Boundary';
+import Nav from './Components/Nav/Nav';
+import Context from './Components/Context/Context';
+import Plug from './Components/Plug/Plug';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  static contextType = Context;
+
+  render() {
+    return (
+      <div className='App'>
+        {this.context.isLoggedIn ? <Nav /> : ''}
+        <Switch>
+          <PublicRoute exact path='/Login' component={Login} />
+          <PrivateRoute exact path='/' component={Home} />
+          <Route component={Boundary} />
+        </Switch>
+        <Plug />
+      </div>
+    );
+  }
 }
 
 export default App;
