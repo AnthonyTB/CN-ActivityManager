@@ -48,8 +48,9 @@ export class ContextProvider extends React.Component {
   };
 
   // updates activities list when a successfuly post call is made for a new activity
-  updateActivityList = activity =>
-    this.setState({ actvities: [...this.state.activities], activity });
+  // updateActivityList = activity => {
+  //   this.setState({ activities: [...this.state.activities] });
+  // };
 
   // sets the error value when called
   setError = error => {

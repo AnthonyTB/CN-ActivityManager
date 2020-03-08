@@ -25,7 +25,7 @@ export default class Home extends React.Component {
   };
 
   timer = () => {
-    if (this.context.user.id === 1) {
+    if (this.context.user.id === 1 || this.context.user.id === 3) {
       return <Timer setActivity={this.setActivity} />;
     }
   };

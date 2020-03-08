@@ -23,8 +23,10 @@ export default class ActivityCreation extends React.Component {
       Date_Created: new Date()
     };
     ActivityService.createActivity(TokenService.getAuthToken(), body)
-      .then(() => this.props.creationToggle)
-      .then(activity => this.context.updateActivitesList(activity))
+      // .then(activity => this.context.updateActivityList(activity))
+      .then(() => ActivityService.getAllActivities(TokenService.getAuthToken()))
+      .then(response => this.context.setActivities(response))
+      .then(() => this.props.creationToggle())
       .catch(res => {
         this.setState({ error: res.error });
       });

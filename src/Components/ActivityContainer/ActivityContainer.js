@@ -10,7 +10,8 @@ export default class ActivityContainer extends React.Component {
     super(props);
     this.state = {
       isAdmin: false,
-      isLoading: true
+      isLoading: true,
+      error: null
     };
   }
 
@@ -19,15 +20,20 @@ export default class ActivityContainer extends React.Component {
       .then(res => this.context.setActivities(res))
       .then(() => this.setState({ isLoading: false }))
       .then(() => {
-        if (this.context.user.id === 1) {
+        if (this.context.user.id === 1 || this.context.user.id === 3) {
           this.setState({ isAdmin: true });
         }
       });
   }
 
   delete = ev => {
-    const { dataset } = ev.target;
-    console.log(dataset);
+    const { dataset } = ev.currentTarget;
+    ActivityService.delete(TokenService.getAuthToken(), dataset.id)
+      .then(() => ActivityService.getAllActivities(TokenService.getAuthToken()))
+      .then(response => this.context.setActivities(response))
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
