@@ -36,6 +36,12 @@ The Activity Manager is a small React web app with 3 routes and only 7 component
 
 > Functional timer with the ability to clear/pause/resume
 
+## Repositories
+
+> [Client](https://github.com/AnthonyTB/CN-ActivityManager)
+
+> [API](https://github.com/AnthonyTB/CN-ActivityManagerAPI)
+
 ## Connect with me
 
 > [My Linkedin](https://www.linkedin.com/in/anthonytb/)
