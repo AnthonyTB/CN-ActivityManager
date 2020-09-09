@@ -14,6 +14,7 @@ const Timer: FunctionComponent<any> = (props) => {
   const [isCounting, setCounting] = useState<boolean>(false);
   const [isEditing, setEditing] = useState<boolean>(false);
   const [isShowingBtns, setShowingBtns] = useState<boolean>(false);
+  let interval: any;
 
   const pickRandomActivity = (array: IActivity[]) => {
     const idx = Math.floor(Math.random() * Math.floor(array.length));
@@ -38,7 +39,7 @@ const Timer: FunctionComponent<any> = (props) => {
 
   const counter = (): void => {
     if (isCounting && count !== 0) {
-      setInterval(() => setCount(count - 1), 1000);
+      interval = setInterval(() => setCount(count - 1), 1000);
     }
   };
 
@@ -48,8 +49,9 @@ const Timer: FunctionComponent<any> = (props) => {
       pickRandomActivity(activities);
     }
 
-    return clearInterval();
-  }, [count]);
+    return clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count, isCounting]);
 
   const onStart = (ev: any) => {
     ev.preventDefault();
@@ -86,11 +88,11 @@ const Timer: FunctionComponent<any> = (props) => {
 
   const pause = () => {
     setCounting(false);
-    clearInterval();
+    clearInterval(interval);
   };
 
   const clear = () => {
-    clearInterval();
+    clearInterval(interval);
     setCounting(false);
     setCount(0);
     setShowingBtns(false);

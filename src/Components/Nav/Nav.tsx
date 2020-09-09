@@ -6,13 +6,13 @@ import { Context } from "../Context/Context";
 const Nav: FunctionComponent = () => {
   const { processLogout, userData } = useContext(Context);
 
-  const Logout = () => {
+  const Logout = (): void => {
     processLogout();
   };
 
   return (
     <div className="Nav">
-      <h5>{userData.username}</h5>
+      {/* <h5>{userData.username}</h5> */}
       <Link onClick={Logout} to="/Login">
         Logout
       </Link>

@@ -3,12 +3,15 @@ import { Route, Redirect, RouteComponentProps } from "react-router-dom";
 import TokenServices from "../../Helpers/TokenService";
 
 interface IProps {
-  component: FunctionComponent;
+  component: FunctionComponent<RouteComponentProps>;
   props: RouteComponentProps;
 }
 
 // renders private routes if auth token present or redirects to login page
-const PrivateRoute: FunctionComponent = ({ component, ...props }: IProps) => {
+const PrivateRoute: FunctionComponent<any> = ({
+  component,
+  ...props
+}: IProps) => {
   const Component = component;
   return (
     <Route

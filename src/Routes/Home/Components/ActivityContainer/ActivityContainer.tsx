@@ -31,11 +31,13 @@ const ActivityContainer: FunctionComponent<IProps> = (props) => {
           setAdmin(true);
         }
       });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteActivity = (ev: React.MouseEvent<HTMLElement>): void => {
     const { dataset } = ev.currentTarget;
-    ActivityService.delete(TokenService.getAuthToken(), dataset.id)
+    ActivityService.delete(TokenService.getAuthToken(), Number(dataset.id))
       .then(() => ActivityService.getAllActivities(TokenService.getAuthToken()))
       .then((response) => dataSetter("activities", response))
       .catch((res) => {

@@ -3,7 +3,7 @@ import { IActivity } from "../interfaces";
 
 const ActivityService = {
   // api call that handles create activity request
-  createActivity(auth: string, newActivity: IActivity) {
+  createActivity(auth: any, newActivity: IActivity) {
     return fetch(`${config.API_ENDPOINT}/activities`, {
       method: "POST",
       headers: {
@@ -16,7 +16,7 @@ const ActivityService = {
     );
   },
   // handles the delete request for an activity
-  delete(auth: string, id: number) {
+  delete(auth: any, id: number) {
     return fetch(`${config.API_ENDPOINT}/activities/${id}`, {
       method: "DELETE",
       headers: {
@@ -25,7 +25,7 @@ const ActivityService = {
     });
   },
   // api call to get all activities
-  getAllActivities(auth: string) {
+  getAllActivities(auth: any) {
     return fetch(`${config.API_ENDPOINT}/activities`, {
       method: "GET",
       headers: {

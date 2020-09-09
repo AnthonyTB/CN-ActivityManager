@@ -5,7 +5,6 @@ import React, {
   useEffect,
 } from "react";
 import TokenService from "../../Helpers/TokenService";
-import JwtDecode from "jwt-decode";
 
 interface IReducer {
   type: string;
@@ -61,15 +60,17 @@ export const ContextProvider: FunctionComponent = (props: any) => {
   useEffect(() => {
     const jwtPayload: any = TokenService.parseAuthToken();
 
-    if (jwtPayload)
+    if (jwtPayload && !state.userData)
       state.userData = {
         id: jwtPayload.user_id,
         name: jwtPayload.name,
         username: jwtPayload.sub,
       };
 
-    TokenService.hasAuthToken() ? dataSetter("isLoggedIn", true) : "";
-  }, []);
+    TokenService.hasAuthToken()
+      ? dataSetter("isLoggedIn", true)
+      : dataSetter("isLoggedIn", false);
+  }, [state.userData]);
 
   // when a user logs in this function is triggered and it saves the users api token
   // to the user's brower local storage and stores the users data in state
@@ -95,7 +96,7 @@ export const ContextProvider: FunctionComponent = (props: any) => {
   const value = {
     isLoggedIn: state.isLoggedIn,
     activities: state.activities,
-    user: state.userData,
+    userData: state.userData,
     error: state.error,
     processLogin,
     processLogout,

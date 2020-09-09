@@ -17,10 +17,10 @@ const ActivityCreation: FunctionComponent<IProps> = (props) => {
     ev.preventDefault();
     const { Title, Description, Creator } = ev.target;
     const body = {
-      Title: Title.value,
-      Description: Description.value,
-      Creator: Creator.value,
-      Date_Created: new Date(),
+      title: Title.value,
+      description: Description.value,
+      creator: Creator.value,
+      date_created: new Date(),
     };
     if (TokenService.getAuthToken() !== null) {
       ActivityService.createActivity(TokenService.getAuthToken(), body)

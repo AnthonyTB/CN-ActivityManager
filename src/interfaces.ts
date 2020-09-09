@@ -1,5 +1,5 @@
 export interface IActivity {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   date_created: Date;

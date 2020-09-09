@@ -23,19 +23,19 @@ const Home: FunctionComponent<RouteComponentProps> = () => {
     return (
       <div className="specialActivity">
         <div className="container">
-          <h5>{activity.title}</h5>
-          <p className="desc">{activity.description}</p>
+          <h5>{activity!.title}</h5>
+          <p className="desc">{activity!.description}</p>
           <div className="meta">
             <p className="created">
-              {new Date(activity.date_created).toLocaleString().split(",")[0]}
+              {new Date(activity!.date_created).toLocaleString().split(",")[0]}
             </p>
-            <p className="creator">{activity.creator}</p>
+            <p className="creator">{activity!.creator}</p>
           </div>
           <div className="group">
             <button
               type="button"
               className="close-activity"
-              onClick={() => setCreating(false)}
+              onClick={(): void => setCreating(false)}
             >
               close
             </button>
@@ -47,18 +47,26 @@ const Home: FunctionComponent<RouteComponentProps> = () => {
 
   return (
     <div className="Home">
-      <img src={Logo} className="Home-Image" alt="Code Ninjas Logo" />
-      {timer()}
-      {activity !== null ? renderActivity() : ""}
-      {isCreating ? (
-        <ActivityCreation creationToggle={() => setCreating(!isCreating)} />
+      {userData ? (
+        <>
+          <img src={Logo} className="Home-Image" alt="Code Ninjas Logo" />
+          {timer()}
+          {activity !== null ? renderActivity() : ""}
+          {isCreating ? (
+            <ActivityCreation
+              creationToggle={(): void => setCreating(!isCreating)}
+            />
+          ) : (
+            ""
+          )}
+          <ActivityContainer
+            creationToggle={(): void => setCreating(!isCreating)}
+            isCreating={isCreating}
+          />
+        </>
       ) : (
-        ""
+        <h3>Loading...</h3>
       )}
-      <ActivityContainer
-        creationToggle={() => setCreating(!isCreating)}
-        isCreating={isCreating}
-      />
     </div>
   );
 };

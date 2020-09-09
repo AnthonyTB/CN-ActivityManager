@@ -3,12 +3,15 @@ import { Route, Redirect, RouteComponentProps } from "react-router-dom";
 import TokenServices from "../../Helpers/TokenService";
 
 interface IProps {
-  component: FunctionComponent;
+  component: FunctionComponent<RouteComponentProps>;
   props: RouteComponentProps;
 }
 
 // if auth token present then redirects to user home page, else only shows public route components
-const PublicRoute: FunctionComponent = ({ component, ...props }: IProps) => {
+const PublicRoute: FunctionComponent<any> = ({
+  component,
+  ...props
+}: IProps) => {
   const Component = component;
   return (
     <Route

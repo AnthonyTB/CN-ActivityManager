@@ -1,6 +1,7 @@
 .LoginForm {
   padding: 20px;
-  background: url('../../Assets/section_bg.png') repeat center center #4e9ec7;
+  background: url("../../../../Assets/section_bg.png") repeat center center
+    #4e9ec7;
   border-radius: 20px;
   width: 60%;
   margin: auto auto;
