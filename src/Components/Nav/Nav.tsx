@@ -12,7 +12,7 @@ const Nav: FunctionComponent = () => {
 
   return (
     <div className="Nav">
-      {/* <h5>{userData.username}</h5> */}
+      <h5>{userData.username}</h5>
       <Link onClick={Logout} to="/Login">
         Logout
       </Link>

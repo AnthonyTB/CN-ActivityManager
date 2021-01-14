@@ -15,7 +15,7 @@ const Login: FunctionComponent<RouteComponentProps> = (props) => {
     <div className="Login">
       <img src={Logo} className="Login-Image" alt="Code Ninjas Logo" />
       <h1>
-        Hi<span className="alt-color">-</span>YAH
+        Hi<span className="alt-color"> - </span>YAH
         <span className="alt-color">!</span>
       </h1>
       <LoginForm onSuccessfulLogin={onSuccessfulLogin} />

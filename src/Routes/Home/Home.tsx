@@ -9,6 +9,7 @@ import { RouteComponentProps } from "react-router-dom";
 import { IActivity } from "../../interfaces";
 
 const Home: FunctionComponent<RouteComponentProps> = () => {
+  console.log("home rerender");
   const { userData } = useContext(Context);
   const [isCreating, setCreating] = useState<boolean>(false);
   const [activity, setActivity] = useState<IActivity | null>(null);
